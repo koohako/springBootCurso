@@ -1,0 +1,27 @@
+.container-principal{
+    height: 700px;
+}
+
+.div-contato{
+background: black;
+}
+
+.lbl-titulo{
+width: 100%;
+color: yellow;
+font-weight: bold;
+}
+
+.lbl-dado{
+width: 100%;
+color: white;
+}
+
+footer{
+    text-align: center;
+    height: 70px;
+}
+
+.lbl-footer{
+margin-top: 20px;
+}
