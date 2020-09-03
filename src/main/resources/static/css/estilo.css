@@ -20,8 +20,68 @@ color: white;
 footer{
     text-align: center;
     height: 70px;
+    background-color: gray;
 }
 
 .lbl-footer{
 margin-top: 20px;
+}
+
+.container-funcionarios{
+    min-height: 700px;
+    width: 400px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.form-titulo{
+    background-color: whitesmoke;
+    text-align: center;
+    
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.form-tabela{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.form-novo{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: right;
+    color: rgb(23, 161, 23);
+}
+
+.badge-botao{
+    padding: 4px;
+}
+
+.tabela-controle{
+    padding: 3px;
+    width: 10px;
+    cursor: pointer;
+
+}
+
+.tabela-controle-delete{
+    padding: 3px;
+    width: 10px;
+    cursor: pointer;
+    color: red;
+    
+}
+
+.tabela-controle:hover{
+    color: forestgreen;
+}
+
+.tabela-controle-delete{
+    color: rgb(190, 3, 3);
 }

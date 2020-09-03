@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>portifolio</title>
 
+
+    <!--CSS-->
     <link rel="stylesheet" th:href="@{/bootstrap-4.5.2/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/fontawesome-5.14.0/css/all.min.css}">
     <link rel="stylesheet" th:href="@{/css/estilo.css}">
@@ -36,21 +38,43 @@
     </nav>
 
     <!--CORPO-->
-    <div class="container container-principal">
-        teste
-    </div>
+    <div class="container container-funcionarios">
+        <div class="form-titulo">
+            <h4>Funcionarios</h3>
+        </div>
 
+        <div class="form-novo">
+            <a th:href="@{/funcionario/add}" class="badge badge-pill badge-success badge-botao">
+            <i class="fa fa-plus-circle"></i> Novo
+            </a>
+        </div>
 
-    <!--CONTATO-->
-    <div class="div-contato">
-        <div class="container">
-            <label class="lbl-titulo">Contato</label>
-            <label class="lbl-dado">portifolio@portifolio.com</label>
-            <label class="lbl-dado">(48) 91892-8922</label>
+        <div class="form-tabela">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Cód</th>
+                        <th>Nome</th>
+                        <th colspan="4">cargo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="funcionario : ${funcionarios}">
+                        <td th:text="${funcionario.id}"></td>
+                        <td th:text="${funcionario.nome}"></td>
+                        <td th:text="${funcionario.cargo}"></td>
+                        <th class="tabela-controle"><i class="fa fa-eye" aria-hidden="true"></i></th>
+                        <th class="tabela-controle"><i class="fa fa-edit" aria-hidden="true"></i></th>
+                        <th class="tabela-controle-delete"><i class="fa fa-trash" aria-hidden="true"></i></th>
+                    </tr>
+                </tbody>
+
+            </table>
 
         </div>
 
     </div>
+
 
     <!--FOOTER-->
 
