@@ -43,31 +43,25 @@
             <h4>Funcionarios</h3>
         </div>
 
-        <form th:action="@{/funcionario/save}" th:object="${funcionario}" method="POST">
+        <form  th:object="${funcionario}">
             <div class="form-group">
                 <label >Código</label>
-                <input class="form-control " type="number" th:field="*{id}" readonly>
+                <input class="form-control " type="number" th:field="${funcionario.id}" readonly>
             </div>
             <div class="form-group">
                 <label >Nome</label>
-                <input class="form-control" type="text" th:field="*{nome}" required>
+                <input class="form-control" type="text" th:field="${funcionario.nome}" readonly>
             </div>
 
             <div class="form-group">
                 <label >Cargo</label>
-                <select class="form-control" th:field="*{cargo}" required>
-                    <option value="Contador">Contador</option>
-                    <option value="Engenheiro">Engenheiro</option>
-                    <option value="Financeiro">Financeiro</option>
-                    <option value="Gerente">Gerente</option>
-                    <option value="TI">TI</option>
+                <input class="form-control" th:field="${funcionario.cargo}" readonly>
                     
-                </select>
+                
             </div>
 
             <div class="form-group">
-                <button class="btn btn-secondary btn-width" type="button" onclick="window.location.href='./list'"><i class="fa fa-ban" aria-hidden="true"></i> Cancelar</button>
-                <button class="btn btn-success btn-width" type="submit"><i class="fa fa-save" aria-hidden="true"></i> Salvar</button>
+                <button class="btn btn-secondary btn-voltar-width" type="button" onclick="window.location.href='../list'"><i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar</button>
             </div>
 
         </form>

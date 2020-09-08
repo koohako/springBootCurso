@@ -63,9 +63,9 @@
                         <td th:text="${funcionario.id}"></td>
                         <td th:text="${funcionario.nome}"></td>
                         <td th:text="${funcionario.cargo}"></td>
-                        <th class="tabela-controle"><i class="fa fa-eye" aria-hidden="true"></i></th>
-                        <th class="tabela-controle"><i class="fa fa-edit" aria-hidden="true"></i></th>
-                        <th class="tabela-controle-delete"><i class="fa fa-trash" aria-hidden="true"></i></th>
+                        <th class="tabela-controle"><a class=".a-controle" th:href="@{'/funcionario/view/' + ${funcionario.id}}"><i class="fa fa-eye" aria-hidden="true"></i></a></th>
+                        <th class="tabela-controle"><a class=".a-controle" th:href="@{'/funcionario/edit/' + ${funcionario.id}}"><i class="fa fa-edit" aria-hidden="true"></i></a></th>
+                        <th class="tabela-controle-delete"> <a class=".a-controle-delete" th:href="@{'/funcionario/edit/' + ${funcionario.id}}"><i class="fa fa-trash" aria-hidden="true"></i> </a></th>
                     </tr>
                 </tbody>
 

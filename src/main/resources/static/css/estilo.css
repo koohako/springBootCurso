@@ -37,6 +37,15 @@ margin-top: 20px;
     margin-bottom: 30px;
 }
 
+.container-funcionario{
+    width: 350px;
+    border: 1px solid #1b1b12;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
 .form-titulo{
     background-color: whitesmoke;
     text-align: center;
@@ -66,22 +75,41 @@ margin-top: 20px;
 .tabela-controle{
     padding: 3px;
     width: 10px;
-    cursor: pointer;
-
 }
 
-.tabela-controle-delete{
+.tabela-controle > a{
+    color: black;
+}
+
+.tabela-controle-delete > a {
     padding: 3px;
     width: 10px;
-    cursor: pointer;
     color: red;
     
 }
 
-.tabela-controle:hover{
+.tabela-controle > a:hover{
     color: forestgreen;
 }
 
-.tabela-controle-delete{
+.tabela-controle-delete > a:hover{
     color: rgb(190, 3, 3);
+}
+
+.btn-width{
+    width: 49%;
+}
+
+.btn-voltar-width{
+    width: 99%;
+}
+
+input{
+    text-align: center;
+}
+
+@media screen and (max-width: 500px){
+    .form-tabela{
+        overflow-x: scroll;
+    }
 }
