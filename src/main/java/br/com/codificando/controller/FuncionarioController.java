@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import br.com.codificando.model.Funcionario;
 import br.com.codificando.repository.FuncionarioRepository;
+import net.bytebuddy.asm.Advice.Return;
 
 @Controller
 public class FuncionarioController {
@@ -44,14 +45,39 @@ public class FuncionarioController {
 			System.out.print("Erro ao salvar: " + e.getMessage());
 		}
 		
-		return "redirect:/funcionario/view/" + funcionario.getId();
+		return "redirect:/funcionario/view/" + funcionario.getId() + "/" + true;
 	}
 	
-	@GetMapping("/funcionario/view/{id}")
-	public String viewFuncionario(@PathVariable long id, Model model) {
+	@GetMapping("/funcionario/view/{id}/{salvo}")
+	public String viewFuncionario(@PathVariable boolean salvo,@PathVariable long id, Model model) {
 			model.addAttribute("funcionario", funcionarioRepository.findById(id));
-			
+			model.addAttribute("salvo",salvo);
 			return "funcionario/view";
 	}
+	
+	@GetMapping("/funcionario/edit/{id}")
+		public String editFuncionario(@PathVariable long id, Model model) {
+			model.addAttribute("funcionario", funcionarioRepository.findById(id));
+			return "funcionario/edit";
+		}
+		
+	@GetMapping("/funcionario/delete/{id}")
+	public String deleteFuncionario(@PathVariable long id, Model model) {
+		
+			model.addAttribute("funcionario", funcionarioRepository.findById(id));
+			return "funcionario/delete";
+	}
+	
+	@PostMapping("/funcionario/delete")
+	public String deleteFuncionario(Funcionario funcionario) {
+		try {
+			funcionarioRepository.delete(funcionario);
+		} catch (Exception e) {
+			System.out.println("Erro: " + e.getMessage());
+		}
+		return "redirect:/funcionario/list";
+	}
+	
+	
 	
 }

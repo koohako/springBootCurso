@@ -43,6 +43,10 @@
             <h4>Funcionarios</h3>
         </div>
 
+        <div th:if="${salvo}" class="alert alert-success">
+            funcionario Salvo com Sucesso
+        </div>
+
         <form  th:object="${funcionario}">
             <div class="form-group">
                 <label >Código</label>
@@ -61,7 +65,7 @@
             </div>
 
             <div class="form-group">
-                <button class="btn btn-secondary btn-voltar-width" type="button" onclick="window.location.href='../list'"><i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar</button>
+                <button class="btn btn-secondary btn-voltar-width" type="button" onclick="window.location.href='../../list'"><i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar</button>
             </div>
 
         </form>
@@ -75,7 +79,7 @@
 
     <!--FOOTER-->
 
-    <footer>
+    <footer class="footer">
         <div>
             <label class="lbl-footer">
                 <i class="far fa-copyright" aria-hidden="true"></i> todos os direitos reservados

@@ -50,28 +50,28 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-     
+            <form th:action="@{/funcionario/delete}" th:long="${1}" method="POST">
                 <div class="modal-body" id="teste"  >
                     Você deseja realmente apagar o funcionario?
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary " data-dismiss="modal"><i class="fa fa-ban"></i> Cancelar</button>
-                <button  type="button" class="btn btn-danger" onclick="deleta()" ><i class="fa fa-trash "></i> Deletar</button>
+                <button  type="submit" class="btn btn-danger"><i class="fa fa-trash "></i> Deletar</button>
                 </div>
-           
+            </form>
             
           </div>
         </div>
       </div>
 
     <!--CORPO-->
-    <div class="container container-funcionarios">
+    <div class="container container-projetos">
         <div class="form-titulo">
-            <h4>Funcionarios</h3>
+            <h4>Projetos</h3>
         </div>
 
         <div class="form-novo">
-            <a th:href="@{/funcionario/add}" class="badge badge-pill badge-success badge-botao">
+            <a th:href="@{/projeto/add}" class="badge badge-pill badge-success badge-botao">
             <i class="fa fa-plus-circle"></i> Novo
             </a>
         </div>
@@ -80,20 +80,30 @@
             <table class="table table-striped">
                 <thead class="thead-dark">
                     <tr>
-                        <th>Cód</th>
+                        <th>Data Início</th>
                         <th>Nome</th>
+                        <th>Status</th>
+                        <th>Risco</th>
+                        <th>Orçamento</th>
+                        <th>Data Previsão</th>
+                        <th>Data Final</th>
                         <th colspan="4">cargo</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="funcionario : ${funcionarios}">
-                        <td th:text="${funcionario.id}"></td>
-                        <td th:text="${funcionario.nome}"></td>
-                        <td th:text="${funcionario.cargo}"></td>
-                        <th class="tabela-controle"><a class=".a-controle" th:href="@{'/funcionario/view/' + ${funcionario.id}} + '/' + ${false}"><i class="fa fa-eye" aria-hidden="true"></i></a></th>
-                        <th class="tabela-controle"><a class=".a-controle" th:href="@{'/funcionario/edit/' + ${funcionario.id}}"><i class="fa fa-edit" aria-hidden="true"></i></a></th>
-                        <!--<th class="tabela-controle-delete"> <a class=".a-controle-delete" th:href="@{'/funcionario/delete/' + ${funcionario.id}}"><i class="fa fa-trash" aria-hidden="true"></i> </a></th>-->
-                        <th class="tabela-controle-delete"> <a th:onclick="|procuraid('${funcionario.id}')|" class=".a-controle-delete" data-toggle="modal" data-target="#exampleModal" ><i class="fa fa-trash" aria-hidden="true"></i> </a></th>
+                    <tr th:each="projeto : ${projetos}">
+                        <td th:text="${#dates.format(projeto.dataInicio, 'dd/MM/yyyy')}"></td>
+                        <td th:text="${projeto.nome}"></td>
+                        <td th:text="${projeto.status}"></td>
+                        <td th:text="${projeto.risco}"></td>
+                        <td th:text="${'R$' + #numbers.formatDecimal(projeto.orcamento,1,'DEFAULT',2,'DEFAULT')}"></td>
+                        <td th:text="${#dates.format(projeto.dataPrevisao, 'dd/MM/yyyy')}"></td>
+                        <td th:text="${#dates.format(projeto.dataFinal, 'dd/MM/yyyy')}"></td>
+                        <td th:text="${projeto.gerente.nome}"></td>
+                        <th class="tabela-controle"><a class=".a-controle" th:href="@{'/projeto/view/' + ${projeto.id}} + '/' + ${false}"><i class="fa fa-eye" aria-hidden="true"></i></a></th>
+                        <th class="tabela-controle"><a class=".a-controle" th:href="@{'/projeto/edit/' + ${projeto.id}}"><i class="fa fa-edit" aria-hidden="true"></i></a></th>
+                        <th class="tabela-controle-delete"> <a class=".a-controle-delete" th:href="@{'/projeto/delete/' + ${projeto.id}}"><i class="fa fa-trash" aria-hidden="true"></i> </a></th>
+                       <!-- <th class="tabela-controle-delete"> <a th:onclick="|procuraid('${funcionario.id}')|" class=".a-controle-delete" data-toggle="modal" data-target="#exampleModal" ><i class="fa fa-trash" aria-hidden="true"></i> </a></th>-->
                     </tr>
                 </tbody>
 
@@ -127,15 +137,7 @@
             const procuraid = function(id){
                 this.id = id;
                 console.log(id);
-            }
-            const deleta = function(){
-                $.ajax({
-		    url : '/funcionario/delete',
-		    method : 'POST',
-		    ob : 'application/json'
-	        });
-            }
-
+                }
     </script>
 
 

@@ -1,10 +1,13 @@
 package br.com.codificando.model;
 
+import java.util.Set;
+
 import javax.annotation.Generated;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.Size;
 
 import org.springframework.lang.NonNull;
@@ -54,6 +57,9 @@ public class Funcionario {
 	public void setCargo(String cargo) {
 		this.cargo = cargo;
 	}
+	
+	@ManyToMany(mappedBy = "funcionarioP")
+	public Set<Projeto> projetoF;
 
 
 	@Override
