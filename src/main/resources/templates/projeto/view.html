@@ -47,7 +47,12 @@
             Projeto salvo com sucesso!
         </div>
 
-        <form th:object="${projeto}" >
+        
+
+
+        
+
+        <form class="scroll-conteiner" th:object="${projeto}" >
             <div class="form-group">
                 <label >Código</label>
                 <input class="form-control " type="number" th:field="${projeto.id}" readonly>
@@ -106,20 +111,20 @@
 
                 <ul class="list-group">
                     <li class="list-group-item list-group-item-dark list-group-item-action active" style="text-align: center;">Funcionários</li>
-                    <li class="list-group-item" th:each="funcionarios : ${projeto.get().getFuncionarioP()}" style="text-align: center;" th:text="${funcionarios.nome}"></li>
+                    <li class="list-group-item" th:each="funcionarios : ${projeto.get().getFuncionarioP()}" style="text-align: center;" th:text="${funcionarios.nome} + '-' + ${funcionarios.cargo}"></li>
                  
                   </ul>
             </div>
 
 
-            <div class="form-group">
-                <button class="btn btn-secondary btn-width" type="button" onclick="window.location.href='../../list'"><i class="fa fa-arrow-left" aria-hidden="true"></i> voltar</button>
-                
-            </div>
+            
 
         </form>
 
-      
+      <div class="form-group">
+                <button class="btn btn-secondary btn-voltar-width" type="button" onclick="window.location.href='../../list'"><i class="fa fa-arrow-left" aria-hidden="true"></i> voltar</button>
+                
+            </div>
 
      
 

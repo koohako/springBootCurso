@@ -44,82 +44,86 @@
         </div>
 
         <form th:action="@{/projeto/save}" th:object="${projeto}" method="POST">
-            <div class="form-group">
-                <label >Código</label>
-                <input class="form-control " type="number" th:field="${projeto.id}" readonly>
-            </div>
-            <div class="form-group">
-                <label >Nome</label>
-                <input class="form-control" type="text" th:field="${projeto.nome}" required>
-            </div>
-            <div class="form-group">
-                <label >descrição</label>
-                <input class="form-control" type="text" th:field="${projeto.descricao}" required>
-            </div>
-            
 
-            <div class="form-group">
-                <label >Status</label>
-                <select class="form-control" th:field="${projeto.status}" required>
-                    <option value="em análise">em análise</option>
-                    <option value="Análise realizada">Análise realizada</option>
-                    <option value="Análize aprovada">Análize aprovada</option>
-                    <option value="Iniciado">Iniciado</option>
-                    <option value="Planejamento">Planejamento</option>
-                    <option value="Em andamento">Em andamento</option>
-                    <option value="Encerrado">Encerrado</option>
-                    <option value="Cancelado">Cancelado</option>
-                    
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label >Status</label>
-                <select class="form-control" th:field="${projeto.risco}" required>
-                    <option value="Risco baixo">Risco baixo</option>
-                    <option value="Risco médio">Risco médio</option>
-                    <option value="Risco alto">Risco alto</option>
-                    
-                </select>
-            </div>
-
-            
-            <div class="form-group">
-                <label >Orçamento</label>
-                <input type="number" class="form-control" th:field="${projeto.orcamento}" required placeholder="R$ 0,00">
+            <div class="scroll-conteiner">
+                <div class="form-group">
+                    <label >Código</label>
+                    <input class="form-control " type="number" th:field="${projeto.id}" readonly>
+                </div>
+                <div class="form-group">
+                    <label >Nome</label>
+                    <input class="form-control" type="text" th:field="${projeto.nome}" required>
+                </div>
+                <div class="form-group">
+                    <label >descrição</label>
+                    <input class="form-control" type="text" th:field="${projeto.descricao}" required>
+                </div>
                 
-            </div>
-            <div class="form-group">
-                <label >Date Início</label>
-                <input type="date" class="form-control" th:field="${projeto.dataInicio}" required>
-                
-            </div>
-            <div class="form-group">
-                <label >Date Final</label>
-                <input type="date" class="form-control" th:field="${projeto.dataFinal}" required>
-                
-            </div>
-            <div class="form-group">
-                <label >Date Previsão</label>
-                <input type="date" class="form-control" th:field="${projeto.dataPrevisao}" required>
-                
-            </div>
-
-            <div class="form-group">
-                <label>Gerente</label>
-                <select th:field="${projeto.Gerente.id}" class="form-control" required>
-                    <option th:each="Gerente : ${Gerentes}" th:value="${Gerente.id}" th:text="${Gerente.nome}"></option>
-                </select>
-            </div>
-
+    
+                <div class="form-group">
+                    <label >Status</label>
+                    <select class="form-control" th:field="${projeto.status}" required>
+                        <option value="em análise">em análise</option>
+                        <option value="Análise realizada">Análise realizada</option>
+                        <option value="Análize aprovada">Análize aprovada</option>
+                        <option value="Iniciado">Iniciado</option>
+                        <option value="Planejamento">Planejamento</option>
+                        <option value="Em andamento">Em andamento</option>
+                        <option value="Encerrado">Encerrado</option>
+                        <option value="Cancelado">Cancelado</option>
                         
-            <div class="form-group">
-                <label >Funcionários</label>
-                <select class="form-control" th:field="*{funcionarioP}" multiple required>
-                    <option th:each="funcionarioP : ${funcionarios}" th:value="${funcionarioP.id}" th:text="${funcionarioP.nome}"></option>
-                </select>
-                  
+                    </select>
+                </div>
+    
+                <div class="form-group">
+                    <label >Status</label>
+                    <select class="form-control" th:field="${projeto.risco}" required>
+                        <option value="Risco baixo">Risco baixo</option>
+                        <option value="Risco médio">Risco médio</option>
+                        <option value="Risco alto">Risco alto</option>
+                        
+                    </select>
+                </div>
+    
+                
+                <div class="form-group">
+                    <label >Orçamento</label>
+                    <input type="number" class="form-control" th:field="${projeto.orcamento}" required placeholder="R$ 0,00">
+                    
+                </div>
+                <div class="form-group">
+                    <label >Date Início</label>
+                    <input type="date" class="form-control" th:field="${projeto.dataInicio}" required>
+                    
+                </div>
+                <div class="form-group">
+                    <label >Date Final</label>
+                    <input type="date" class="form-control" th:field="${projeto.dataFinal}" required>
+                    
+                </div>
+                <div class="form-group">
+                    <label >Date Previsão</label>
+                    <input type="date" class="form-control" th:field="${projeto.dataPrevisao}" required>
+                    
+                </div>
+    
+                <div class="form-group">
+                    <label>Gerente</label>
+                    <select th:field="${projeto.Gerente.id}" class="form-control" required>
+                        <option th:each="Gerente : ${Gerentes}" th:value="${Gerente.id}" th:text="${Gerente.nome}"></option>
+                    </select>
+                </div>
+    
+                            
+                <div class="form-group">
+                    <label >Funcionários</label>
+                    <select class="form-control" th:field="*{funcionarioP}" multiple required>
+                        <option th:each="funcionarioP : ${funcionarios}" th:value="${funcionarioP.id}" th:text="${funcionarioP.nome}"></option>
+                    </select>
+                      
+                </div>
             </div>
+            
 
 
 

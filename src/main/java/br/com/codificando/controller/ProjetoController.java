@@ -32,7 +32,7 @@ public class ProjetoController {
 	@GetMapping("/projeto/add")
 	public String addProjeto(Model model) {
 		model.addAttribute("projeto", new Projeto());
-		model.addAttribute("gerentes", funcionarioRepository.findAllByCargo("Gerente"));
+		model.addAttribute("Gerentes", funcionarioRepository.findAllByCargo("Gerente"));
 		model.addAttribute("funcionarios", funcionarioRepository.findByCargoNot("Gerente"));
 
 		return "projeto/add";
@@ -65,22 +65,16 @@ public class ProjetoController {
 	}
 	
 
-	@GetMapping("/projeto/delete")
-	public String deleteProjeto( long id, Model model) {
-		model.addAttribute("projeto",projetoRepository.findById(id));
+	@GetMapping("/projeto/delete/{id}")
+	public String deleteProjeto(@PathVariable long id) {
 		
-		return "/projeto/delete";
-	}
-	
-	@PostMapping("/projeto/delete/{id}")
-	public void deleteProjeto(long id) {
 		try {
 			projetoRepository.deleteById(id);
 		} catch (Exception e) {
 			System.out.print("Error: " + e.getMessage());
 		}
 		
-		
+		return "redirect:/projeto/list";
 	}
 	
 	

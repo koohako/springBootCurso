@@ -1,3 +1,8 @@
+body{
+    height: 100%;
+    width: 100%;
+}
+
 .container-principal{
     height: 700px;
 }
@@ -71,11 +76,21 @@ select[readonly] {
 
 .container-projeto{
     width: 500px;
+    max-height: 700px;
     border: 1px solid #1b1b12;
     border-radius: 10px;
     margin-top: 20px;
     margin-bottom: 20px;
     padding: 10px;
+    
+}
+
+.scroll-conteiner{
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border-bottom: solid 1px black;
+    max-height:500px;
+    overflow-y: scroll;
 }
 
 .form-titulo{
@@ -89,8 +104,12 @@ select[readonly] {
 
 .form-tabela{
     margin-top: 20px;
+     
+    max-height: 600px;
+   overflow-y: scroll;
     margin-bottom: 20px;
 }
+
 
 .form-novo{
     margin-top: 20px;
@@ -136,6 +155,7 @@ select[readonly] {
     width: 99%;
 }
 
+
 input{
     text-align: center;
 }
@@ -144,14 +164,100 @@ select{
     text-align-last: center;
 }
 
-@media screen and (max-width: 500px){
-    .form-tabela{
-        overflow-x: scroll;
-    }
-}
 
 .alert {
     margin-top: 15px;
     text-align: center;
     
 }
+
+
+@media screen and (max-width: 500px){
+    .form-tabela{
+        overflow-x: scroll;
+    }
+
+    .container-projetos{
+    	width: 95%;
+    }
+    
+    
+}
+
+@media screen and (max-width: 350px){
+    .form-tabela{
+        overflow-x: scroll;
+    }
+
+    .container-projetos{
+    	width: 95%;
+    }
+
+    .container-funcionario{
+        width: 100%;
+    }
+    
+    
+}
+
+@media screen and (max-width:800px){
+	.container-projeto{
+    	width: 95%;
+    }	
+    .container-funcionarios{
+        width: 95%;
+    }
+
+    
+    .esconder{
+        display: none;
+    }
+}
+
+@media screen and (min-width:1000px){
+	.container-projeto{
+    	width: 95%;
+    }	
+    .container-funcionarios{
+        width: 95%;
+    }
+
+    
+}
+
+
+@media screen and (min-height:1000px){
+
+
+    .container-projeto{
+        max-height: 850px;
+        
+    }
+    
+    .scroll-conteiner{
+        max-height:650px;
+    }
+
+    footer{
+        position: absolute;
+    }
+}
+
+@media screen and (min-height:1200px){
+
+
+    .container-projeto{
+        max-height: 1300px;
+        
+    }
+    
+    .scroll-conteiner{
+        max-height:1000px;
+    }
+
+    footer{
+        position: absolute;
+    }
+}
+
+
