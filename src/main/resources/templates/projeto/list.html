@@ -35,7 +35,9 @@
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/funcionario/list}">Funcionarios</a>
                 </li>
-
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/usuario/list}">Usuários</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -104,7 +106,7 @@
                         <td class="tabela-controle"><button type="button" class="btn btn-outline-success" th:onclick="|window.location.href='/projeto/view/' + ${projeto.id} + '/' + ${false}|"><i class="fa fa-eye" aria-hidden="true"></i></button></th>
                         <td class="tabela-controle"><button type="button" class="btn btn-outline-success" th:onclick="| window.location.href='/projeto/edit/' + ${projeto.id}|"><i class="fa fa-edit" aria-hidden="true"></i></button></th>
                         <td class="tabela-controle-delete"><button type="button" class="btn btn-outline-danger" th:onclick="|showModalDeletar(${projeto.id})|"><i class="fa fa-trash "></i></button> </th>
-                       <!-- <th class="tabela-controle-delete"> <a th:onclick="|procuraid('${funcionario.id}')|" class=".a-controle-delete" data-toggle="modal" data-target="#exampleModal" ><i class="fa fa-trash" aria-hidden="true"></i> </a></th>  window.location.href=@{'/projeto/edit/' + ${projeto.id}}-->
+                        <th class="tabela-controle-delete"> <a th:onclick="|procuraid('${funcionario.id}')|" class=".a-controle-delete" data-toggle="modal" data-target="#exampleModal" ><i class="fa fa-trash" aria-hidden="true"></i> </a></th>
                     </tr>
                 </tbody>
 

@@ -38,6 +38,7 @@
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/usuario/list}">Usuários</a>
                 </li>
+
             </ul>
         </div>
     </nav>
@@ -47,18 +48,18 @@
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Deletar funcionario</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Deletar usuario</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
          
                     <div class="modal-body" id="teste"  >
-                        Você deseja realmente apagar este funcionario?
+                        Você deseja realmente apagar este usuario?
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary " data-dismiss="modal"><i class="fa fa-ban"></i> Cancelar</button>
-                    <button  type="button" class="btn btn-danger" th:onclick="deletar('funcionario')"><i class="fa fa-trash "></i> Deletar</button>
+                    <button  type="button" class="btn btn-danger" th:onclick="deletar('usuario')"><i class="fa fa-trash "></i> Deletar</button>
                     </div>
                
                 
@@ -69,11 +70,11 @@
     <!--CORPO-->
     <div class="container container-funcionarios">
         <div class="form-titulo">
-            <h4>Funcionarios</h3>
+            <h4>Usuários</h3>
         </div>
 
         <div class="form-novo">
-            <a th:href="@{/funcionario/add}" class="badge badge-pill badge-success badge-botao">
+            <a th:href="@{/usuario/add}" class="badge badge-pill badge-success badge-botao">
             <i class="fa fa-plus-circle"></i> Novo
             </a>
         </div>
@@ -85,18 +86,20 @@
                     <tr>
                         <th>Cód</th>
                         <th>Nome</th>
-                        <th colspan="4">cargo</th>
+                        <th>Login</th>
+                        <th colspan="4">Cpf</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    <tr th:each="funcionario : ${funcionarios}">
-                        <td th:text="${funcionario.id}"></td>
-                        <td th:text="${funcionario.nome}"></td>
-                        <td th:text="${funcionario.cargo}"></td>
-                        <th class="tabela-controle"> <button type="button" class="btn btn-outline-success" th:onclick="|window.location.href = '/funcionario/view/' + ${funcionario.id} + '/' + ${false}|" ><i class="fa fa-eye" aria-hidden="true"></i></button></th>
-                        <th class="tabela-controle"> <button class="btn btn-outline-success" type="button" th:onclick="|window.location.href= '/funcionario/edit/' + ${funcionario.id}|"><i class="fa fa-edit" aria-hidden="true"></i></button></th>
-                        <th class="tabela-controle-delete"> <button type="button" class="btn btn-outline-danger" th:onclick="|showModalDeletar('${funcionario.id}')|"><i class="fa fa-trash" aria-hidden="true"></i></button></th>
+                    <tr th:each="usuario : ${usuarios}">
+                        <td th:text="${usuario.id}"></td>
+                        <td th:text="${usuario.nome}"></td>
+                        <td th:text="${usuario.login}"></td>
+                        <td th:text="${usuario.cpf}"></td>
+                        <th class="tabela-controle"> <button type="button" class="btn btn-outline-success" th:onclick="|window.location.href = '/usuario/view/' + ${usuario.id} + '/' + ${false}|" ><i class="fa fa-eye" aria-hidden="true"></i></button></th>
+                        <th class="tabela-controle"> <button class="btn btn-outline-success" type="button" th:onclick="|window.location.href= '/usuario/edit/' + ${usuario.id}|"><i class="fa fa-edit" aria-hidden="true"></i></button></th>
+                        <th class="tabela-controle-delete"> <button type="button" class="btn btn-outline-danger" th:onclick="|showModalDeletar('${usuario.id}')|"><i class="fa fa-trash" aria-hidden="true"></i></button></th>
                     </tr>
                 </tbody>
 

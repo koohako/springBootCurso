@@ -13,7 +13,7 @@
     <link rel="stylesheet" th:href="@{/css/estilo.css}">
 </head>
 
-<body>
+<body onload="traduzirSenha()">
     <!--MENU-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand mb-0 h1" th:href="@{/}">portifolio</a>
@@ -35,43 +35,44 @@
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/usuario/list}">Usuários</a>
                 </li>
+
             </ul>
         </div>
     </nav>
 
-    
-
     <!--CORPO-->
     <div class="container container-funcionario">
         <div class="form-titulo">
-            <h4>Funcionarios</h3>
+            <h4>Funcionário</h3>
         </div>
 
-        <form th:action="@{/funcionario/save}" th:object="${funcionario}" method="POST">
+        <div th:if="${salvo}" class="alert alert-success">
+            Usuário salvo com sucesso
+        </div>
+
+        <form  th:object="${usuario}">
             <div class="form-group">
                 <label >Código</label>
-                <input class="form-control " type="number" th:field="${funcionario.id}" readonly>
+                <input class="form-control " type="number" th:field="${usuario.id}" readonly>
             </div>
             <div class="form-group">
                 <label >Nome</label>
-                <input class="form-control" type="text" th:field="${funcionario.nome}" required>
+                <input class="form-control" type="text" th:field="${usuario.nome}" readonly>
             </div>
 
             <div class="form-group">
-                <label >Cargo</label>
-                <select class="form-control" th:field="${funcionario.cargo}" required>
-                    <option value="Contador">Contador</option>
-                    <option value="Engenheiro">Engenheiro</option>
-                    <option value="Financeiro">Financeiro</option>
-                    <option value="Gerente">Gerente</option>
-                    <option value="TI">TI</option>
-                    
-                </select>
+                <label >Login</label>
+                <input class="form-control" th:field="${usuario.login}" readonly>                
             </div>
 
-            <div class="form-group ">
-                <button class="btn btn-secondary btn-width" type="button" onclick="window.location.href='../list'"><i class="fa fa-ban" aria-hidden="true"></i> Cancelar</button>
-                <button class="btn btn-success btn-width" type="submit"><i class="fa fa-save" aria-hidden="true"></i> Salvar</button>
+
+            <div class="form-group">
+                <label >CPF</label>
+                <input class="form-control" th:field="${usuario.cpf}" readonly>                
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-secondary btn-voltar-width" type="button" onclick="window.location.href='../../list'"><i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar</button>
             </div>
 
         </form>
@@ -85,7 +86,7 @@
 
     <!--FOOTER-->
 
-    <footer class="footer" >
+    <footer >
         <div>
             <label class="lbl-footer">
                 <i class="far fa-copyright" aria-hidden="true"></i> todos os direitos reservados
@@ -98,7 +99,7 @@
     <!--JAVASCRIPT-->
     <script th:src="@{/js/jquery-3.5.1.min.js}"></script>
     <script th:src="@{/bootstrap-4.5.2/js/bootstrap.min.js}"></script>
-
+    <script src="/js/script.js"></script>
 </body>
 
 </html>
